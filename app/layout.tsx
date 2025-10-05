@@ -54,7 +54,7 @@ export default function RootLayout({
                 href="https://github.com/Bazelit"
                 title="heroui.com homepage"
               >
-                <span className="text-default-600">Powered by</span>
+                <span className="text-default-600">Created by</span>
                 <p className="text-primary">Bazelit</p>
               </Link>
             </footer>

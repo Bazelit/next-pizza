@@ -25,7 +25,7 @@ const LoginModal = () => {
       >
         Войти
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal isOpen={isOpen} backdrop="blur" onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
