@@ -34,6 +34,7 @@ const LoginModal = () => {
                 <Input
                   label="Электронная почта"
                   color="primary"
+                  type="email"
                   placeholder="Введите свою электронную почту"
                   variant="bordered"
                 />

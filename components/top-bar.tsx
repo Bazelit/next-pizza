@@ -3,7 +3,7 @@ import SortPopup from "@/components/sort-popup";
 
 const TopBar = () => {
   return (
-    <div className="backdrop-blur-sm bg-gray-400/20 border-1 border-default/50 px-2 py-5 rounded-4xl flex items-center justify-between sticky top-3 z-50">
+    <div className="backdrop-blur-sm bg-gray-400/20 border-1 border-default/50 px-2 py-5 rounded-4xl flex items-center justify-between sticky top-3 z-25">
       <Categories />
       <SortPopup />
     </div>

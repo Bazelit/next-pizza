@@ -1,11 +1,13 @@
 import { Checkbox } from "@heroui/checkbox";
+import { ChangeEventHandler } from "react";
 
 export interface FilterChecboxProps {
   text: string;
   value: string;
   endAdornment?: React.ReactNode;
-  onCheckedChange?: (checked: boolean) => void;
+  onCheckedChange?: ChangeEventHandler<HTMLInputElement>;
   checked?: boolean;
+  name?: string;
 }
 
 export const FilterCheckbox: React.FC<FilterChecboxProps> = ({
@@ -14,17 +16,18 @@ export const FilterCheckbox: React.FC<FilterChecboxProps> = ({
   endAdornment,
   onCheckedChange,
   checked,
+  name,
 }) => {
   return (
     <div>
       <Checkbox
-        // onCheckedChange={onCheckedChange}
+        onChange={onCheckedChange}
         checked={checked}
         value={value}
-        id={`checkbox-${String(value)}`}
+        id={`checkbox-${String(name)}-${String(value)}`}
       />
       <label
-        htmlFor={`checkbox-${String(value)}`}
+        htmlFor={`checkbox-${String(name)}-${String(value)}`}
         className="leading-none cursor-pointer flex-1"
       >
         {text}

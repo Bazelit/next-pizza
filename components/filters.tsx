@@ -1,18 +1,59 @@
 "use client";
 
 import { Input } from "@heroui/input";
-import { FilterCheckbox } from "./filter-checkbox";
 import { Title } from "./title";
 import { Slider } from "@heroui/slider";
 import { SliderValue } from "@heroui/slider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CheckboxFilterGroup from "./checkbox-filter-group";
+import { useIngredients } from "@/hooks/use-ingredients";
+import { useSet } from "react-use";
+import qs from "qs";
+import { useRouter, useSearchParams } from "next/navigation";
+
+interface QueryFilters {
+  sizes: string;
+  pizzaTypes: string;
+  ingredients: string;
+}
 
 const Filters = () => {
-  const [value, setValue] = useState<SliderValue>([100, 500]);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const { ingredients, isLoading, onAddId, selectedIds } = useIngredients();
+
+  const items = ingredients.map((item) => ({
+    value: String(item.id),
+    text: item.name,
+  }));
+
+  const [sizes, { toggle: toggleSizes }] = useSet(new Set<string>([]));
+  const [pizzaTypes, { toggle: togglePizzaTypes }] = useSet(
+    new Set<string>([])
+  );
+
+  const [value, setValue] = useState<SliderValue>([0, 1000]);
 
   const minPrice = Array.isArray(value) ? value[0] : 0;
   const maxPrice = Array.isArray(value) ? value[1] : value;
+
+  const filters = {
+    minPrice,
+    maxPrice,
+    ingredients,
+    pizzaTypes: Array.from(pizzaTypes),
+    sizes: Array.from(sizes),
+  };
+
+  useEffect(() => {
+    const query = qs.stringify(filters, {
+      arrayFormat: "comma",
+    });
+
+    router.push(`?${query}`, {
+      scroll: false,
+    });
+  }, [filters]);
 
   const handleMinInputChange = (newMin: number) => {
     const clampedMin = Math.max(0, Math.min(newMin, maxPrice));
@@ -24,21 +65,42 @@ const Filters = () => {
     setValue([minPrice, clampedMax]);
   };
 
-  const formatCurrency = (value: number) => {
-    return `${value} ₽`;
-  };
-
   return (
     <div>
       <Title size="sm" text="Фильтрация" className="mb-5 font-bold" />
-      <div className="felx flex-col space-y-1">
+      <CheckboxFilterGroup
+        title="Тип теста"
+        name="pizzaTypes"
+        className="mt-5"
+        limit={6}
+        items={[
+          { text: "Тонкое", value: "1" },
+          { text: "Толстое", value: "2" },
+        ]}
+        onClickCheckbox={togglePizzaTypes}
+        selectedIds={pizzaTypes}
+      />
+      <CheckboxFilterGroup
+        title="Размеры"
+        name="sizes"
+        className="mt-5"
+        limit={6}
+        items={[
+          { text: "20 см", value: "20" },
+          { text: "30 см", value: "30" },
+          { text: "40 см", value: "40" },
+        ]}
+        onClickCheckbox={toggleSizes}
+        selectedIds={sizes}
+      />
+
+      {/* <div className="felx flex-col space-y-1">
         <FilterCheckbox text="Можно собирать" value="1" />
         <FilterCheckbox text="Новинки" value="2" />
-      </div>
+      </div> */}
 
       <div className="mt-5 border-t border-t-default py-6 pb-7">
         <p className="font-bold mb-3">Цена от и до:</p>
-
         <div className="flex gap-3 mb-5">
           <Input
             type="number"
@@ -75,60 +137,14 @@ const Filters = () => {
 
         <CheckboxFilterGroup
           title="Ингредиенты"
+          name="ingredients"
           className="mt-5"
           limit={6}
-          defaultItems={[
-            {
-              text: "Сырный соус",
-              value: "1",
-            },
-            {
-              text: "Моццарелла",
-              value: "2",
-            },
-            {
-              text: "Чеснок",
-              value: "3",
-            },
-            {
-              text: "Солённые огурчики",
-              value: "4",
-            },
-            {
-              text: "Красный лук",
-              value: "5",
-            },
-            {
-              text: "Томаты",
-              value: "6",
-            },
-          ]}
-          items={[
-            {
-              text: "Сырный соус",
-              value: "1",
-            },
-            {
-              text: "Моццарелла",
-              value: "2",
-            },
-            {
-              text: "Чеснок",
-              value: "3",
-            },
-            {
-              text: "Солённые огурчики",
-              value: "4",
-            },
-            {
-              text: "Красный лук",
-              value: "5",
-            },
-            {
-              text: "Томаты",
-              value: "6",
-            },
-          ]}
+          defaultItems={items.slice(0, 6)}
+          items={items}
+          isLoading={isLoading}
+          onClickCheckbox={onAddId}
+          selectedIds={selectedIds}
         />
       </div>
     </div>

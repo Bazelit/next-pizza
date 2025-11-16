@@ -1,6 +1,3 @@
-import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
-import { Popover, PopoverTrigger, PopoverContent } from "@heroui/popover";
 import { ArrowUpDown } from "lucide-react";
 
 export default function SortPopup() {
@@ -11,7 +8,6 @@ export default function SortPopup() {
         <b>Сортировка:</b>
         <b className="text-primary">популярное</b>
       </div>
-     
     </div>
   );
 }

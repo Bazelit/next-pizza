@@ -25,72 +25,26 @@ export default function Home() {
                     {
                       id: 1,
                       name: "Чизбургер",
-                      ingredients: "asdas asdasd",
+                      ingredients:
+                        "Цыпленок, красный лук, сладкий перец, соус терияки, сыр моцарелла и фирменный соус альфредо",
                       imageUrl:
                         "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
                       items: [{ price: 550 }],
                     },
-                     {
-                      id: 1,
+                    {
+                      id: 2,
                       name: "Чизбургер",
-                      ingredients: "asdas asdasd",
-                      imageUrl:
-                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
-                      items: [{ price: 550 }],
-                    }, {
-                      id: 1,
-                      name: "Чизбургер",
-                      ingredients: "asdas asdasd",
-                      imageUrl:
-                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
-                      items: [{ price: 550 }],
-                    }, {
-                      id: 1,
-                      name: "Чизбургер",
-                      ingredients: "asdas asdasd",
+                      ingredients:
+                        "Цыпленок, красный лук, сладкий перец, соус терияки, сыр моцарелла и фирменный соус альфредо",
                       imageUrl:
                         "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
                       items: [{ price: 550 }],
                     },
-                     {
-                      id: 1,
+                    {
+                      id: 3,
                       name: "Чизбургер",
-                      ingredients: "asdas asdasd",
-                      imageUrl:
-                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
-                      items: [{ price: 550 }],
-                    }, {
-                      id: 1,
-                      name: "Чизбургер",
-                      ingredients: "asdas asdasd",
-                      imageUrl:
-                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
-                      items: [{ price: 550 }],
-                    }, {
-                      id: 1,
-                      name: "Чизбургер",
-                      ingredients: "asdas asdasd",
-                      imageUrl:
-                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
-                      items: [{ price: 550 }],
-                    }, {
-                      id: 1,
-                      name: "Чизбургер",
-                      ingredients: "asdas asdasd",
-                      imageUrl:
-                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
-                      items: [{ price: 550 }],
-                    }, {
-                      id: 1,
-                      name: "Чизбургер",
-                      ingredients: "asdas asdasd",
-                      imageUrl:
-                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
-                      items: [{ price: 550 }],
-                    }, {
-                      id: 1,
-                      name: "Чизбургер",
-                      ingredients: "asdas asdasd",
+                      ingredients:
+                        "Цыпленок, красный лук, сладкий перец, соус терияки, сыр моцарелла и фирменный соус альфредо",
                       imageUrl:
                         "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
                       items: [{ price: 550 }],
@@ -98,7 +52,39 @@ export default function Home() {
                   ]}
                   categoryId={1}
                 />
-                
+                <ProductsGroupList
+                  title="Комбо"
+                  items={[
+                    {
+                      id: 1,
+                      name: "Чизбургер",
+                      ingredients:
+                        "Цыпленок, красный лук, сладкий перец, соус терияки, сыр моцарелла и фирменный соус альфредо",
+                      imageUrl:
+                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
+                      items: [{ price: 550 }],
+                    },
+                    {
+                      id: 2,
+                      name: "Чизбургер",
+                      ingredients:
+                        "Цыпленок, красный лук, сладкий перец, соус терияки, сыр моцарелла и фирменный соус альфредо",
+                      imageUrl:
+                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
+                      items: [{ price: 550 }],
+                    },
+                    {
+                      id: 3,
+                      name: "Чизбургер",
+                      ingredients:
+                        "Цыпленок, красный лук, сладкий перец, соус терияки, сыр моцарелла и фирменный соус альфредо",
+                      imageUrl:
+                        "https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif",
+                      items: [{ price: 550 }],
+                    },
+                  ]}
+                  categoryId={2}
+                />
               </div>
             </div>
           </div>

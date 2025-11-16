@@ -8,36 +8,19 @@ import {
   NavbarMenuItem,
 } from "@heroui/navbar";
 import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { GithubIcon, HeartFilledIcon, SearchIcon } from "@/components/icons";
+import { GithubIcon } from "@/components/icons";
 import LoginModal from "./login-modal";
 import { Button } from "@heroui/button";
 import CartButton from "./cart-button";
+import SearchInput from "./search-input";
 
 export const Navbar = () => {
-  const searchInput = (
-    <Input
-      aria-label="Search"
-      classNames={{
-        inputWrapper: "bg-default-100",
-        input: "text-sm",
-      }}
-      className="w-full"
-      labelPlacement="outside"
-      placeholder="Поиск..."
-      startContent={
-        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-      }
-      type="search"
-    />
-  );
-
   return (
     <HeroUINavbar maxWidth="xl" position="static">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -64,7 +47,9 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarItem className="w-[50%] hidden lg:flex">{searchInput}</NavbarItem>
+      <NavbarItem className="w-[50%] hidden lg:flex">
+        <SearchInput />
+      </NavbarItem>
 
       <NavbarContent
         className="hidden sm:flex basis-1/5 sm:basis-full"
@@ -90,7 +75,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarMenu>
-        {searchInput}
+        <SearchInput />
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>

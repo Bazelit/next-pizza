@@ -20,7 +20,7 @@ export default function Error({
     <div className="flex items-center flex-col  justify-center">
       <h2 className="mb-5 text-3xl font-bold">Произошла ошибка!</h2>
       <button
-        className="bg-primary-500 py-3 px-6 rounded-2xl cursor-pointer transition-all ease-linear duration-200 active:bg-primary-600 active:scale-95 "
+        className="bg-primary-500 text-white py-3 px-6 rounded-2xl cursor-pointer transition-all ease-linear duration-200 active:bg-primary-600 active:scale-95 "
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()
