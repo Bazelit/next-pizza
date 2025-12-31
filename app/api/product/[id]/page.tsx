@@ -1,5 +1,5 @@
-const ProductPage = ({ params: { id } }: { params: { id: string } }) => {
-  return <p>Product {id}</p>;
-};
+// const ProductPage = ({ params: { id } }: { params: { id: string } }) => {
+//   return <p>Product {id}</p>;
+// };
 
-export default ProductPage;
+// export default ProductPage;
