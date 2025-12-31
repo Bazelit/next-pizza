@@ -20,7 +20,7 @@ export const FilterCheckbox: React.FC<FilterChecboxProps> = ({
   return (
     <div className="flex items-center gap-2">
       <Checkbox
-        onChange={onCheckedChange}
+        onValueChange={onCheckedChange}
         isSelected={checked}
         value={value}
         id={`checkbox-${String(name)}-${String(value)}`}

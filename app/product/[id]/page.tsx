@@ -1,10 +1,11 @@
-export default function ProductPage({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
-  // const router = useRouter();
-  // const { id } = router.query;
+type PageProps = {
+  params: Promise<{
+    id: string;
+  }>;
+};
 
-  return <p>Product {id}</p>;
+export default async function Page({ params }: PageProps) {
+  const { id } = await params;
+
+  return <div>Product {id}</div>;
 }
