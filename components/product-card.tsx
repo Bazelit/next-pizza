@@ -8,11 +8,19 @@ import { Image } from "@heroui/image";
 import Drawer from "./drawer";
 import { useState } from "react";
 
+interface IIngradient {
+  id: number;
+  name: string;
+  imageUrl: string;
+  price: number;
+  quantity: number;
+}
+
 interface IProductCardProps {
   id: number;
   name: string;
   price: number;
-  ingredients: string;
+  ingredients: IIngradient[];
   imageUrl: string;
 }
 
@@ -45,7 +53,13 @@ const ProductCard = ({
           />
           <div className="px-3">
             <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
-            <p className="text-sm text-gray-400">{ingredients}</p>
+            <div>
+              {ingredients.map((ingredient) => (
+                <span key={ingredient.id} className="text-sm text-gray-400">
+                  {ingredient.name + " "}
+                </span>
+              ))}
+            </div>
           </div>
         </CardBody>
 

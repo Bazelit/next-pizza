@@ -5,7 +5,6 @@
   outline-offset: 2px !important;
 } */
 
-
 ::selection {
   background: #e86507e8;
   color: white;
@@ -15,7 +14,7 @@
   -webkit-tap-highlight-color: transparent;
   pointer-events: auto;
   scroll-behavior: smooth;
-  /* user-select: none; */
+  user-select: none;
 }
 
 @config "../tailwind.config.js";

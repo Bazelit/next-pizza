@@ -1,10 +1,11 @@
-"use state";
+"use client";
 
 import { Input } from "@heroui/input";
 import { FilterChecboxProps, FilterCheckbox } from "./filter-checkbox";
 import { useState } from "react";
 import { Button } from "@heroui/button";
 import { Skeleton } from "@heroui/skeleton";
+import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 
 type Item = FilterChecboxProps;
 
@@ -18,10 +19,8 @@ interface CheckboxFilterGroupProps {
   searchInputPlaceholder?: string;
   className?: string;
   onClickCheckbox?: (id: string) => void;
-  defaultValue?: string[];
   name?: string;
 }
-console.log("hello wro");
 
 const CheckboxFilterGroup = ({
   title,
@@ -31,22 +30,20 @@ const CheckboxFilterGroup = ({
   searchInputPlaceholder = "Поиск...",
   isLoading,
   onClickCheckbox,
-  defaultValue,
   selectedIds,
   name,
 }: CheckboxFilterGroupProps) => {
   const [showAll, setShowAll] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const debouncedSearch = useDebouncedValue(searchValue, 250);
 
   if (isLoading) {
     return (
-      <div>
+      <div className={""}>
         <p className="font-bold mb-3">{title}</p>
-        {...new Array(limit)
-          .fill(0)
-          .map((_, index) => (
-            <Skeleton key={index} className="h-6 mb-4 rounded-[8px]" />
-          ))}
+        {new Array(limit).fill(0).map((_, index) => (
+          <Skeleton key={index} className="h-6 mb-4 rounded-[8px]" />
+        ))}
         <Skeleton className="w-28 h-6 mb-4 rounded-[8px]" />
       </div>
     );
@@ -54,28 +51,29 @@ const CheckboxFilterGroup = ({
 
   const list = showAll
     ? items.filter((item) =>
-        item.text.toLowerCase().includes(searchValue.toLowerCase())
+        item.text.toLowerCase().includes(debouncedSearch.toLowerCase())
       )
     : (defaultItems || items).slice(0, limit);
 
   return (
-    <>
+    <div className="">
       <p className="font-bold mb-3">{title}</p>
 
       {showAll && (
         <div className="mb-5">
           <Input
+            value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             placeholder={searchInputPlaceholder}
           />
         </div>
       )}
 
-      <div className="felx flex-col space-y-1 mb-4">
-        {list.map((item, index) => (
+      <div className="flex flex-col space-y-1 mb-4">
+        {list.map((item) => (
           <FilterCheckbox
-            key={index}
-            checked={selectedIds?.has(item.value)}
+            key={item.value}
+            checked={selectedIds ? selectedIds.has(item.value) : false}
             text={item.text}
             value={item.value}
             endAdornment={item.endAdornment}
@@ -88,12 +86,12 @@ const CheckboxFilterGroup = ({
       {items.length > limit && (
         <Button
           className="text-primary bg-transparent"
-          onPress={() => setShowAll(!showAll)}
+          onPress={() => setShowAll((s) => !s)}
         >
-          {showAll ? "Скрыть все ингредиенты" : "Показать все ингредиенты"}
+          {showAll ? "Скрыть все" : "Показать все"}
         </Button>
       )}
-    </>
+    </div>
   );
 };
 

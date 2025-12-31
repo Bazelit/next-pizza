@@ -108,26 +108,19 @@ const Drawer: React.FC<BottomDrawerProps> = ({ isOpen, onClose }) => {
         <div
           style={{
             width: "100%",
-            padding: "10px",
+            padding: "20px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             cursor: "grab",
           }}
         >
-          <div
-            style={{
-              width: "40px",
-              height: "4px",
-              backgroundColor: "#ccc",
-              borderRadius: "2px",
-            }}
-          />
+          <div className="w-[100px] h-1 bg-gray-400 rounded-xs" />
         </div>
 
         {/* Drawer content */}
         <div style={{ padding: "20px", margin: "0 auto", maxWidth: "800px" }}>
-          <h2>Чизбургер пицца</h2>
+          <p className="text-3xl">Чизбургер пицца</p>
           <Image
             src="https://media.dodostatic.net/image/r:584x584/0198da9ee2dd75038d9b6f7f23810d42.avif"
             alt="burger"

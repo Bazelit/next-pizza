@@ -6,12 +6,11 @@ import { Link } from "@heroui/link";
 
 const Categories = () => {
   const cats = [
-    { id: 1, name: "Пицца" },
-    { id: 2, name: "Комбо" },
+    { id: 1, name: "Пиццы" },
+    { id: 2, name: "Завтрак" },
     { id: 3, name: "Закуски" },
-    { id: 4, name: "Кофе" },
+    { id: 4, name: "Коктейли" },
     { id: 5, name: "Напитки" },
-    { id: 6, name: "Десерты" },
   ];
   const categoryActiveId = useCategoryStore((state) => state.activeId);
 
