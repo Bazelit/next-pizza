@@ -20,7 +20,7 @@ export default async function Home() {
     <>
       <div>
         <div className="mx-auto max-w-[1280px]">
-          <Title text="Все пиццы" size="lg" className="font-extrabold mb-6" />
+          <Title className="font-extrabold mb-6" size="lg" text="Все пиццы" />
         </div>
         <TopBar />
         <div className="mx-auto max-w-[1280px] mt-10 pb-14">
@@ -34,8 +34,8 @@ export default async function Home() {
                   <ProductsGroupList
                     key={category.id}
                     categoryId={category.id}
-                    title={category.name}
                     items={category.products}
+                    title={category.name}
                   />
                 ))}
               </div>

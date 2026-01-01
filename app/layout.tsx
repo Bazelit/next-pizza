@@ -1,16 +1,16 @@
+import { Suspense } from "react";
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { CircularProgress } from "@heroui/progress";
 
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import { Suspense } from "react";
-import { CircularProgress } from "@heroui/progress";
 
 export const metadata: Metadata = {
   title: {
@@ -52,9 +52,9 @@ export default function RootLayout({
               <Suspense
                 fallback={
                   <CircularProgress
-                    aria-label="Loading..."
-                    size="sm"
                     color="primary"
+                    label="Загрузка..."
+                    size="lg"
                   />
                 }
               >

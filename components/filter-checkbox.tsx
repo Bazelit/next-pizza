@@ -20,19 +20,17 @@ export const FilterCheckbox: React.FC<FilterChecboxProps> = ({
   return (
     <div className="flex items-center gap-2">
       <Checkbox
-        onValueChange={onCheckedChange}
+        id={`checkbox-${String(name)}-${String(value)}`}
         isSelected={checked}
         value={value}
-        id={`checkbox-${String(name)}-${String(value)}`}
+        onValueChange={onCheckedChange}
       />
-
       <label
-        htmlFor={`checkbox-${String(name)}-${String(value)}`}
         className="leading-none cursor-pointer flex-1"
+        htmlFor={`checkbox-${String(name)}-${String(value)}`}
       >
         {text}
       </label>
-
       {endAdornment}
     </div>
   );
