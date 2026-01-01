@@ -10,6 +10,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { Suspense } from "react";
+import { CircularProgress } from "@heroui/progress";
 
 export const metadata: Metadata = {
   title: {
@@ -48,9 +49,17 @@ export default function RootLayout({
           <div className="relative flex flex-col h-screen">
             <Navbar />
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {/* <Suspense fallback={<div>Загрузка фильтров...</div>}> */}
+              <Suspense
+                fallback={
+                  <CircularProgress
+                    aria-label="Loading..."
+                    size="sm"
+                    color="primary"
+                  />
+                }
+              >
                 {children}
-              {/* </Suspense> */}
+              </Suspense>
             </main>
             <footer className="w-full flex items-center justify-center py-3">
               <Link
