@@ -31,7 +31,7 @@ const ProductCard = ({
   ingredients,
 }: IProductCardProps) => {
   return (
-    <Drawer.Root>
+    <Drawer.Root shouldScaleBackground>
       <Drawer.Trigger asChild>
         <Card key={id} isPressable shadow="sm">
           <CardBody className="overflow-visible p-0">

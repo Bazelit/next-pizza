@@ -14,7 +14,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   if (!product) notFound();
 
-  return <div className="mx-auto max-w-[1280px] flex flex-col my-10">
-    <ProductImage src={product.imageUrl} />
-  </div>;
+  return (
+    <div className="mx-auto max-w-[1280px] flex flex-col my-10">
+      {/* <ProductImage src={product.imageUrl} /> */}
+    </div>
+  );
 }
