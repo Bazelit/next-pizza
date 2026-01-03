@@ -1,7 +1,7 @@
-import Filters from "@/components/filters";
-import ProductsGroupList from "@/components/products-group-list";
-import { Title } from "@/components/title";
-import TopBar from "@/components/top-bar";
+import Filters from "@/components/shared/filters";
+import ProductsGroupList from "@/components/shared/products-group-list";
+import { Title } from "@/components/ui/title";
+import TopBar from "@/components/shared/top-bar";
 import prisma from "@/prisma/prisma-client";
 
 export default async function Home() {
@@ -25,7 +25,7 @@ export default async function Home() {
         <TopBar />
         <div className="mx-auto max-w-[1280px] mt-10 pb-14">
           <div className="flex gap-[60px] items-start">
-            <div className="w-[250px] flex-shrink-0">
+            <div className="w-[250px] flex-shrink-0 max-md:hidden">
               <Filters />
             </div>
             <div className="flex-1 min-w-0">

@@ -1,7 +1,7 @@
 "use client";
 
 import { Input } from "@heroui/input";
-import { SearchIcon } from "@/components/icons";
+import { SearchIcon } from "@/components/ui/icons";
 import { useState, useRef } from "react";
 import { useClickAway, useDebounce } from "react-use";
 import Link from "next/link";
@@ -84,7 +84,7 @@ z-[52] ${focused && "visible opacity-100 top-12"}`}
             <Link
               key={product.id}
               onClick={onClickItem}
-              href={`/api/product/${product.id}`}
+              href={`/product/${product.id}`}
               className="flex items-center gap-3 w-full px-3 py-2 transition-all duration-250 hover:bg-primary/10"
             >
               <Image

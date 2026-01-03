@@ -18,12 +18,22 @@ const LoginModal = () => {
   return (
     <>
       <Button
-        startContent={<User size={16} />}
         variant="bordered"
         color="primary"
         onPress={onOpen}
+        isIconOnly
+        className="md:hidden"
       >
-        Войти
+        <User size={16} />
+      </Button>
+      <Button
+        variant="bordered"
+        color="primary"
+        onPress={onOpen}
+        className="max-md:hidden"
+      >
+        <User size={16} />
+        <span>Войти</span>
       </Button>
       <Modal isOpen={isOpen} backdrop="blur" onOpenChange={onOpenChange}>
         <ModalContent>

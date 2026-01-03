@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import ProductCard from "./product-card";
-import { Title } from "./title";
+import { Title } from "../ui/title";
 import { useIntersection } from "react-use";
 import { useCategoryStore } from "@/store/category";
+import ProductCard from "../ui/product-card";
 
 interface IProductsGroupListProps {
   title: string;
@@ -32,7 +32,7 @@ const ProductsGroupList = ({
   return (
     <div id={title} ref={intersectionRef}>
       <Title text={title} size="lg" className="font-extrabold mb-5" />
-      <div className="gap-8 grid grid-cols-2 sm:grid-cols-3">
+      <div className="gap-4 sm:gap-6 lg:gap-8 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3">
         {items.map((product) => (
           <ProductCard
             id={product.id}

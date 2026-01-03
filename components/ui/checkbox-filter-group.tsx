@@ -56,7 +56,7 @@ const CheckboxFilterGroup = ({
     : (defaultItems || items).slice(0, limit);
 
   return (
-    <div className="">
+    <div>
       <p className="font-bold mb-3">{title}</p>
 
       {showAll && (
@@ -70,17 +70,21 @@ const CheckboxFilterGroup = ({
       )}
 
       <div className="flex flex-col space-y-1 mb-4">
-        {list.map((item) => (
-          <FilterCheckbox
-            key={item.value}
-            checked={selectedIds ? selectedIds.has(item.value) : false}
-            text={item.text}
-            value={item.value}
-            endAdornment={item.endAdornment}
-            onCheckedChange={() => onClickCheckbox?.(item.value)}
-            name={name}
-          />
-        ))}
+        {list.length > 0 ? (
+          list.map((item) => (
+            <FilterCheckbox
+              key={item.value}
+              checked={selectedIds ? selectedIds.has(item.value) : false}
+              text={item.text}
+              value={item.value}
+              endAdornment={item.endAdornment}
+              onCheckedChange={() => onClickCheckbox?.(item.value)}
+              name={name}
+            />
+          ))
+        ) : (
+          <p className="text-default-500 text-sm">Ничего не найдено</p>
+        )}
       </div>
 
       {items.length > limit && (

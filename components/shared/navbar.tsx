@@ -13,12 +13,12 @@ import NextLink from "next/link";
 import clsx from "clsx";
 
 import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { GithubIcon } from "@/components/icons";
-import LoginModal from "./login-modal";
+import { ThemeSwitch } from "@/components/ui/theme-switch";
+import { GithubIcon } from "@/components/ui/icons";
 import { Button } from "@heroui/button";
-import CartButton from "./cart-button";
-import SearchInput from "./search-input";
+import SearchInput from "../ui/search-input";
+import LoginModal from "../ui/login-modal";
+import CartButton from "../ui/cart-button";
 
 export const Navbar = () => {
   return (
@@ -64,13 +64,14 @@ export const Navbar = () => {
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
+          <CartButton />
           <LoginModal />
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <LoginModal />
         <CartButton />
+        <LoginModal />
         <NavbarMenuToggle />
       </NavbarContent>
 

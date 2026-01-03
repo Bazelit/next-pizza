@@ -2,13 +2,13 @@
 
 import React from "react";
 import { Input } from "@heroui/input";
-import { Title } from "./title";
+import { Title } from "../ui/title";
 import { Slider } from "@heroui/slider";
-import CheckboxFilterGroup from "./checkbox-filter-group";
 import { useIngredients } from "@/hooks/use-ingredients";
 import useFilters from "@/hooks/use-filters";
 import { Button } from "@heroui/button";
 import { useRouter } from "next/navigation";
+import CheckboxFilterGroup from "../ui/checkbox-filter-group";
 
 const Filters = () => {
   const { ingredients, isLoading } = useIngredients();

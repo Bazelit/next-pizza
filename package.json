@@ -78,6 +78,7 @@
     "react-remove-scroll": "^2.5.5",
     "react-use": "^17.6.0",
     "ts-node": "^10.9.2",
+    "vaul": "^1.1.2",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
