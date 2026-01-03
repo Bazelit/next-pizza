@@ -69,7 +69,7 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+      <NavbarContent className="sm:hidden basis-1 pl-4 gap-2" justify="end">
         <CartButton />
         <LoginModal />
         <NavbarMenuToggle />
@@ -106,6 +106,7 @@ export const Navbar = () => {
             <span>GitHub</span>
             <Button
               as={Link}
+              target="blank"
               href={siteConfig.links.github}
               isIconOnly
               variant="bordered"
