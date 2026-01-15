@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Spinner } from "@heroui/spinner";
 
-import { Providers } from "../providers";
+import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -42,7 +42,7 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen text-foreground bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <SpeedInsights />
