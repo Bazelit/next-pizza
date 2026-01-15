@@ -6,7 +6,7 @@ export default function SortPopup() {
   return (
     <Popover placement="bottom">
       <PopoverTrigger>
-        <Button className="inline-flex items-center gap-1 bg-default px-5 h-[52px] rounded-2xl cursor-pointer">
+        <Button className="inline-flex items-center gap-1 bg-default px-5 min-md:h-[52px] min-md:rounded-2xl">
           <ArrowUpDown size={16} />
           <b>Сортировка:</b>
           <b className="text-primary">популярное</b>

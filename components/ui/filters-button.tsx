@@ -4,14 +4,27 @@ import { Button } from "@heroui/button";
 import { SlidersHorizontal } from "lucide-react";
 import { Drawer } from "vaul";
 import Filters from "../shared/filters";
+import { useState, useEffect } from "react";
 
 const FiltersButton = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 400);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isMobile]);
+
   return (
     <Drawer.Root direction="right">
       <Drawer.Trigger asChild>
-        <Button className="min-md:hidden">
+        <Button className="min-md:hidden" isIconOnly={isMobile}>
           <SlidersHorizontal size={16} />
-          <b>Фильтры</b>
+          <b className="max-[401px]:hidden">Фильтры</b>
         </Button>
       </Drawer.Trigger>
       <Drawer.Portal>

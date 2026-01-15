@@ -12,7 +12,7 @@ type ProductPageProps = {
   }>;
 };
 
-export default async function ProductModalPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params }: ProductPageProps) {
   const { id } = await params;
   const product = await prisma.product.findFirst({ where: { id: Number(id) } });
 

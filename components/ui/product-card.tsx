@@ -31,7 +31,7 @@ const ProductCard = ({
   ingredients,
 }: IProductCardProps) => {
   return (
-    <Drawer.Root shouldScaleBackground>
+    <Drawer.Root shouldScaleBackground={true}>
       <Drawer.Trigger asChild>
         <Card key={id} isPressable shadow="sm">
           <CardBody className="overflow-visible p-0">
@@ -56,6 +56,8 @@ const ProductCard = ({
           </CardBody>
 
           <CardFooter className="flex justify-between items-center mt-4">
+            {/* <div className="hidden min-[767px]:flex max-[1118px]:flex"> */}
+            {/* 767, 1118 */}
             <p className="text-[20px]">
               от <b>{price}</b> ₽
             </p>
@@ -63,6 +65,7 @@ const ProductCard = ({
             <Button color="primary">
               <Plus size={20} className="mr-1" /> Добавить
             </Button>
+            {/* </div> */}
           </CardFooter>
         </Card>
       </Drawer.Trigger>

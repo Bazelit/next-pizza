@@ -14,7 +14,7 @@ const TopBar = () => {
         <div className="backdrop-blur-sm bg-gray-400/20 border-1 border-default/50 px-2 py-3 rounded-4xl overflow-x-auto mb-3">
           <Categories />
         </div>
-        <div className="flex items-center justify-between gap-5">
+        <div className="flex items-center justify-between gap-1">
           <SortPopup />
           <FiltersButton />
         </div>
